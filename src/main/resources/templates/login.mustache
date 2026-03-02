@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Login</title>
+    <style>
+        body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:system-ui;background:#0b0b0c;color:#f3f4f6;padding:24px}
+        .card{width:min(420px,100%);background:#141416;border:1px solid #262626;border-radius:18px;padding:20px}
+        input{width:100%;padding:12px;border-radius:12px;border:1px solid #2a2a2a;background:#0f0f10;color:#f3f4f6}
+        button{margin-top:14px;width:100%;padding:12px;border-radius:12px;border:none;background:#22c55e;color:#0b0b0c;font-weight:800;cursor:pointer}
+        a{color:#60a5fa;text-decoration:none}
+        .msg{margin-top:10px;color:#9ca3af;font-size:13px}
+        .err{margin-top:10px;color:#f87171;font-size:13px}
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Login 🙂</h1>
+
+    <form method="post" action="/login">
+        <div class="msg">Username</div>
+        <input name="username" required />
+        <div class="msg" style="margin-top:10px;">Password</div>
+        <input name="password" type="password" required />
+        <button type="submit">Enter</button>
+        <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}">
+    </form>
+
+    <div class="msg">
+        No account? <a href="/register">Register</a>
+    </div>
+
+    {{#error}}<div class="err">Wrong username or password.</div>{{/error}}
+    {{#registered}}<div class="msg">Registered ✅ Now login.</div>{{/registered}}
+    {{#logout}}<div class="msg">Logged out.</div>{{/logout}}
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>YesNoQuest</title>
+    <style>
+        body{margin:0;font-family:system-ui;background:#0b0b0c;color:#f3f4f6;padding:24px}
+        .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+        a{color:#60a5fa;text-decoration:none}
+        .card{margin-top:16px;background:#141416;border:1px solid #262626;border-radius:18px;padding:18px;max-width:720px}
+        label{display:block;margin:12px 0 6px;color:#cbd5e1}
+        input, textarea, select{width:100%;padding:12px;border-radius:12px;border:1px solid #2a2a2a;background:#0f0f10;color:#f3f4f6}
+        button{margin-top:14px;width:100%;padding:12px;border-radius:12px;border:none;background:#22c55e;color:#0b0b0c;font-weight:800;cursor:pointer}
+        .msg{margin-top:10px;color:#9ca3af;font-size:13px}
+        .ok{margin-top:12px;padding:12px;border-radius:12px;border:1px solid #2a2a2a;background:#0f0f10}
+    </style>
+</head>
+<body>
+<form method="post" action="/logout" style="display:inline;">
+    <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}">
+    <button type="submit" style="background:none;border:none;color:#60a5fa;cursor:pointer;padding:0;font:inherit;">
+        Logout
+    </button>
+</form>
+
+<div class="card">
+    <h2>Create a “Yes/No” trap</h2>
+    <form method="post" action="/send">
+        <label>Recipient email</label>
+        <input type="email" name="recipientEmail" required placeholder="someone@example.com"/>
+
+        <label>One question</label>
+        <textarea name="question" rows="3" required placeholder="Will you go out with me?"></textarea>
+
+        <label>Theme</label>
+        <select name="theme" required>
+            {{#themes}}
+                <option value="{{name}}">{{label}}</option>
+            {{/themes}}
+        </select>
+
+        <input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}">
+        <button type="submit">Generate & Send</button>
+
+        <div class="msg">It emails an HTML file. “NO” runs away and does nothing 😈</div>
+    </form>
+
+    {{#sentTo}}
+        <div class="ok">
+            ✅ Sent to <b>{{sentTo}}</b><br/>
+            Attachment: <b>{{fileName}}</b>
+        </div>
+    {{/sentTo}}
+
+    {{#mailError}}
+        <div class="ok" style="border-color:#f87171;">
+            ❌ Email failed: <b>{{mailError}}</b>
+        </div>
+    {{/mailError}}
+</div>
+</body>
+</html>
