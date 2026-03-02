@@ -11,6 +11,8 @@ out/
 # Kotlin / JVM
 *.class
 *.log
+# Allow Gradle Wrapper JAR (must be committed)
+!gradle/wrapper/gradle-wrapper.jar
 
 # Spring Boot
 *.jar
