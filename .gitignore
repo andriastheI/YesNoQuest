@@ -1,0 +1,57 @@
+
+# ==============================
+# YesNoQuest .gitignore
+# ==============================
+
+# Gradle
+.gradle/
+build/
+out/
+
+# Kotlin / JVM
+*.class
+*.log
+
+# Spring Boot
+*.jar
+*.war
+
+# IDE Files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment / Secrets
+.env
+.env.*
+application-local.properties
+
+# H2 Database Files (if file-based DB is used)
+*.mv.db
+*.trace.db
+
+# Logs
+logs/
+*.log
+
+# Temporary Files
+*.tmp
+*.swp
+
+# Mac/Linux
+*.lock
+
+# Windows
+desktop.ini
+
+# Node (if ever added for frontend tooling)
+node_modules/
+
+# Coverage Reports
+coverage/
