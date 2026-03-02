@@ -174,9 +174,9 @@ If enabled, access:
 
 Typical settings:
 
--   JDBC URL: `jdbc:h2:mem:testdb`
--   Username: `sa`
--   Password: (leave blank)
+- JDBC URL: jdbc:h2:mem:yesnoquestdb
+- Username: sa
+- Password: (leave blank)
 
 ------------------------------------------------------------------------
 
