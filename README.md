@@ -57,6 +57,20 @@ These steps are designed for someone running the project directly from
 the terminal.
 
 ------------------------------------------------------------------------
+# 📦 Version Requirements
+
+To run this project successfully, ensure the following versions are installed:
+
+- Java 17 or 21
+
+- Gradle 8.14.3 or later (required for Spring Boot 4.1.0-M2)
+
+- Spring Boot 4.1.0-M2
+
+- H2 Database (embedded, no setup required)
+
+The project includes a Gradle Wrapper, so a global Gradle installation is not required.
+------------------------------------------------------------------------
 
 ## 1️⃣ Clone the Repository
 
@@ -69,8 +83,40 @@ cd YesNoQuest
 
 ## 2️⃣ Provide Email Credentials (Session-Based Variables)
 
-⚠️ Do NOT hardcode your password.
-If using Gmail, generate a Google App Password.
+### 🔐 Generate a Gmail App Password (Required for Email Sending)
+
+You have to use you Gmail, you must generate an App Password.
+Do NOT use your regular Gmail password.
+
+#### Step 1: Enable 2-Step Verification
+
+Go to: https://myaccount.google.com/security
+
+Under “Signing in to Google”, click 2-Step Verification
+
+Follow the steps to enable it
+
+⚠️ App Passwords will not appear unless 2-Step Verification is enabled.
+
+#### Step 2: Generate an App Password
+
+1. Go to: https://myaccount.google.com/apppasswords
+   (It won't work if you are using your college email!)
+2. Select:
+   - App: Mail
+   - Device: Other (Custom)
+
+3. Enter a name (e.g., YesNoQuest)
+
+4. Click Generate
+
+5. Google will provide a 16-character password
+
+Copy this password — this is what you will use as:
+
+``` bash
+MAIL_PASS = "your_app_password"
+```
 
 ------------------------------------------------------------------------
 
@@ -87,8 +133,8 @@ $env:MAIL_PASS="your_app_password"
 Example:
 
 ``` powershell
-$env:MAIL_USER="andriasmekonnenzelele@gmail.com"
-$env:MAIL_PASS="byuvthkzqjoihaho"
+$env:MAIL_USER="iamyouremail@gmail.com"
+$env:MAIL_PASS="sadfasdfasdfasdf" (REMOVE EVERY SPACE IN THE GIVEN PASSWORD)
 ./gradlew clean bootRun
 ```
 
