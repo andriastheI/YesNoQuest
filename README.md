@@ -9,11 +9,11 @@
 YesNoQuest is a Kotlin-based Spring Boot web application that allows
 users to:
 
--   Register and authenticate securely using Spring Security\
--   Generate a custom Yes/No interactive email\
--   Send the email using JavaMailSender\
--   Include a playful "No" button trap (dynamic HTML interaction)\
--   Persist user data using an H2 database\
+-   Register and authenticate securely using Spring Security
+-   Generate a custom Yes/No interactive email
+-   Send the email using JavaMailSender
+-   Include a playful "No" button trap (dynamic HTML interaction)
+-   Persist user data using an H2 database
 -   Securely inject email credentials using environment variables
 
 This project demonstrates full-stack backend development using modern
@@ -39,13 +39,13 @@ This application **does NOT store email credentials in the codebase**.
 
 Instead, it uses environment variables:
 
--   `MAIL_USERNAME`
--   `MAIL_PASSWORD`
+-   `MAIL_USER`
+-   `MAIL_PASS`
 
 Spring Boot reads these values at runtime from:
 
-    spring.mail.username=${MAIL_USERNAME}
-    spring.mail.password=${MAIL_PASSWORD}
+    spring.mail.username=${MAIL_USER}
+    spring.mail.password=${MAIL_PASS}
 
 This prevents credential exposure in GitHub repositories.
 
@@ -69,7 +69,7 @@ cd YesNoQuest
 
 ## 2️⃣ Provide Email Credentials (Session-Based Variables)
 
-⚠️ Do NOT hardcode your password.\
+⚠️ Do NOT hardcode your password.
 If using Gmail, generate a Google App Password.
 
 ------------------------------------------------------------------------
@@ -79,16 +79,16 @@ If using Gmail, generate a Google App Password.
 From inside the project directory:
 
 ``` powershell
-$env:MAIL_USERNAME="your_email@gmail.com"
-$env:MAIL_PASSWORD="your_app_password"
+$env:MAIL_USER="your_email@gmail.com"
+$env:MAIL_PASS="your_app_password"
 ./gradlew clean bootRun
 ```
 
 Example:
 
 ``` powershell
-$env:MAIL_USERNAME="andriasmekonnenzelele@gmail.com"
-$env:MAIL_PASSWORD="byuvthkzqjoihaho"
+$env:MAIL_USER="andriasmekonnenzelele@gmail.com"
+$env:MAIL_PASS="byuvthkzqjoihaho"
 ./gradlew clean bootRun
 ```
 
@@ -99,8 +99,8 @@ These variables only exist for that PowerShell session.
 ### 🔹 Mac / Linux (bash or zsh)
 
 ``` bash
-export MAIL_USERNAME="your_email@gmail.com"
-export MAIL_PASSWORD="your_app_password"
+export MAIL_USER="your_email@gmail.com"
+export MAIL_PASS="your_app_password"
 ./gradlew clean bootRun
 ```
 
