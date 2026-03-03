@@ -174,7 +174,7 @@ If enabled, access:
 
 Typical settings:
 
-- JDBC URL: jdbc:h2:mem:yesnoquestdb
+- JDBC URL: jdbc:h2:file:./data/yesnoquestdb
 - Username: sa
 - Password: (leave blank)
 
@@ -229,7 +229,15 @@ Andrias Zelele\
 Carroll College -- Computer Science
 
 ------------------------------------------------------------------------
+## AI Assistance Disclosure
 
+This project was developed with assistance from OpenAI's ChatGPT:
+https://openai.com/chatgpt
+
+The tool was used for guidance and refinement only.
+All final logic and structure were performed by the author.
+
+------------------------------------------------------------------------
 ## 🤖 Acknowledgements
 
 This project was built by Andrias Zelele.\
